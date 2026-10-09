@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ff245e">
+  <title>Bangla Converter | ANSI V1 · V2 · V3</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero"><h1>Converter</h1></header>
+
+    <nav class="version-tabs" aria-label="Converter version">
+      <button class="version-tab active" data-version="v1">Unicode <span>‹ ›</span> ANSI V1</button>
+      <button class="version-tab" data-version="v2">Unicode <span>‹ ›</span> ANSI V2</button>
+      <button class="version-tab" data-version="v3">Unicode <span>‹ ›</span> ANSI V3</button>
+    </nav>
+
+    <section class="workspace">
+      <article class="editor-card">
+        <div class="editor-toolbar">
+          <strong id="leftTitle">Unicode</strong>
+          <div class="toolbar-actions">
+            <button class="tool-btn" data-action="copy-left" title="Copy Unicode"><span class="tool-icon">▢</span> Copy</button>
+            <button class="tool-btn" data-action="paste-left" title="Paste Unicode"><span class="tool-icon">▣</span> Paste</button>
+            <button class="tool-btn" data-action="clear-left" title="Clear Unicode"><span class="tool-icon">×</span> Clear</button>
+          </div>
+        </div>
+        <textarea id="unicodeText" placeholder="এখানে ইউনিকোড লিখুন" spellcheck="false"></textarea>
+      </article>
+
+      <div class="middle-symbol" aria-hidden="true">‹ ›</div>
+
+      <article class="editor-card">
+        <div class="editor-toolbar">
+          <strong id="rightTitle">ANSI V1</strong>
+          <div class="toolbar-actions">
+            <button class="tool-btn" data-action="copy-right" title="Copy ANSI"><span class="tool-icon">▢</span> Copy</button>
+            <button class="tool-btn" data-action="paste-right" title="Paste ANSI"><span class="tool-icon">▣</span> Paste</button>
+            <button class="tool-btn" data-action="clear-right" title="Clear ANSI"><span class="tool-icon">×</span> Clear</button>
+          </div>
+        </div>
+        <textarea id="ansiText" placeholder="এখানে ANSI লিখুন" spellcheck="false"></textarea>
+      </article>
+    </section>
+
+    <section class="conversion-actions">
+      <button id="toAnsi" class="convert-btn">Unicode → ANSI V1</button>
+      <button id="toUnicode" class="convert-btn secondary">ANSI V1 → Unicode</button>
+      <span id="status" role="status" aria-live="polite">প্রস্তুত। কনভার্ট করতে একটি বাটনে ক্লিক করুন।</span>
+    </section>
+
+    <aside class="mapping-note">
+      <strong>ম্যাপিং ফাইল পরে যোগ করবেন:</strong>
+      <p>এই প্রজেক্টে ANSI V1, V2 ও V3-এর জন্য আলাদা JavaScript ফাইলের জায়গা রাখা হয়েছে। আসল converter/mapping code না দেওয়া পর্যন্ত রূপান্তর বাটন placeholder হিসেবে থাকবে।</p>
+      <ul>
+        <li><code>converters/ansi-v1.js</code> — এখানে ANSI V1-এর আসল কোড যোগ করুন।</li>
+        <li><code>converters/ansi-v2.js</code> — এখানে ANSI V2-এর আসল কোড যোগ করুন।</li>
+        <li><code>converters/ansi-v3.js</code> — এখানে ANSI V3-এর আসল কোড যোগ করুন।</li>
+      </ul>
+      <p class="note-small">কোড যোগ করার পর <code>app.js</code>-এ দেখানো নির্দেশনা অনুযায়ী সংশ্লিষ্ট converter function যুক্ত করতে হবে। শুধু ফাইলের নাম রাখলে নিজে থেকে conversion চালু হবে না।</p>
+    </aside>
+
+    <footer>Bangla Converter · Unicode ↔ ANSI V1 / V2 / V3</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
